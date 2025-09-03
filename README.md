@@ -1,30 +1,102 @@
 # Portfolio for Vansh Gupta
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+🚀 Features
+Responsive Design: The portfolio adjusts to all screen sizes, ensuring an optimal experience on both desktop and mobile devices.
+Smooth Animations: Interactive elements, hover effects, and smooth scrolling give the user a pleasant experience.
+Dynamic Content: Fetches data from various APIs to display the latest information, such as GitHub repositories and LeetCode submissions.
+Interactive Icons: Utilizes Lucide icons for a modern and interactive design.
+SVG Signature Animation: Framer-Motion is used to animate the SVG signature on the loading page.
+Dark Mode: Built with dark mode support using a simple toggle to switch between light and dark themes.
+Custom Sections:
+Home: Introduction, Typewriter effect with dynamic roles, and links to key sections.
+About: A section that provides more insight into my background and skills.
+Skills: Displays my technical skills, organized by categories.
+Projects: Showcase of personal and professional projects.
+GitHub: Fetches and displays my GitHub repositories with a link to view the profile.
+LeetCode: Fetches and displays my LeetCode submissions.
+Experience: Details about my work experience with a timeline layout.
+Education: My academic journey including degree and institution.
+Certifications: Certificates and courses completed with a link to verify.
+Contact: A form to reach out to me directly.
+SEO Optimized: Ensures visibility on search engines.
+Performance Optimized: Optimized for fast loading with minimal web vitals.
+📂 Directory Structure
+└── aman portfolio/
+    ├── README.MD
+    ├── LICENSE
+    ├── eslint.config.js
+    ├── index.html
+    ├── package.json
+    ├── postcss.config.js
+    ├── tailwind.config.js
+    ├── tsconfig.app.json
+    ├── tsconfig.json
+    ├── tsconfig.node.json
+    ├── vite.config.ts
+    ├── public/
+    │   └── assets/
+    └── src/
+        ├── App.tsx
+        ├── index.css
+        ├── main.tsx
+        ├── vite-env.d.ts
+        ├── components/
+        │   ├── About.tsx
+        │   ├── Certifications.tsx
+        │   ├── Contact.tsx
+        │   ├── Education.tsx
+        │   ├── Experience.tsx
+        │   ├── Footer.tsx
+        │   ├── GitHub.tsx
+        │   ├── Hero.tsx
+        │   ├── Leetcode.tsx
+        │   ├── Link.tsx
+        │   ├── Navbar.tsx
+        │   ├── Projects.tsx
+        │   ├── Skills.tsx
+        │   ├── hero/
+        │   │   ├── ActionButtons.tsx
+        │   │   ├── ContactInfo.tsx
+        │   │   └── SocialLinks.tsx
+        │   ├── loading/
+        │   │   ├── HandwritingAnimation.tsx
+        │   │   ├── LoadingScreen.tsx
+        │   │   └── svgPaths.ts
+        │   └── ui/
+        │       ├── AboutCard.tsx
+        │       ├── CertificationCard.tsx
+        │       ├── ContactForm.tsx
+        │       ├── CustomCursor.tsx
+        │       ├── EducationCard.tsx
+        │       ├── ProjectCard.tsx
+        │       ├── SectionTitle.tsx
+        │       ├── ThemeToggle.tsx
+        │       ├── Timeline.tsx
+        │       └── TypeWriter.tsx
+        └── hooks/
+            ├── useAnimatedLogo.ts
+            ├── useLoading.ts
+            └── useTheme.ts
+🛠 Technologies Used
+React: JavaScript library for building the user interface.
+TypeScript: A superset of JavaScript that adds type safety and improves code quality.
+Tailwind CSS: A utility-first CSS framework to rapidly build custom designs.
+Lucide Icons: Used for interactive and sleek icons.
+Vercel: For fast deployment and hosting.
+GitHub API: To fetch and display repositories.
+Framer-Motion: For svg signature loading animation.
+📸 Screenshots
+Here's a glimpse of the portfolio:
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/nonugupta17-7554s-projects/v0-portfolio-for-vansh-gupta)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/LiOGt01u80A)
+Home Screenshot
 
-## Overview
+📜 License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+📬 Contact
+Feel free to reach out to me through any of the following channels:
 
-## Deployment
+Email: GUPTAVANSH28@GMAIL.COM
+LinkedIn:www.linkedin.com/in/vansh-gupta-62354432a
 
-Your project is live at:
 
-**[https://vercel.com/nonugupta17-7554s-projects/v0-portfolio-for-vansh-gupta](https://vercel.com/nonugupta17-7554s-projects/v0-portfolio-for-vansh-gupta)**
-
-## Build your app
-
-Continue building your app on:
-
-**[https://v0.app/chat/projects/LiOGt01u80A](https://v0.app/chat/projects/LiOGt01u80A)**
-
-## How It Works
-
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
