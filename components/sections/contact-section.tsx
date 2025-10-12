@@ -37,11 +37,11 @@ export default function ContactSection() {
             </p>
             <div className="space-y-3">
               <a
-                href="mailto:vansh.gupta@example.com"
+                href="mailto:guptavansh28@gmail.com"
                 className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.03] p-3 hover:bg-white/[0.06]"
               >
                 <Mail className="h-4 w-4 text-zinc-300" />
-                <span>vansh.gupta@example.com</span>
+                <span>guptavansh28@gmail.com</span>
               </a>
               <a
                 href="https://github.com/Vansh-g-hash"
