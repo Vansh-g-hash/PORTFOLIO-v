@@ -171,6 +171,19 @@
       display: block;
     }
   }
+
+  /* Added pulse animation for intro glow orbs */
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 0.2;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.3;
+      transform: scale(1.05);
+    }
+  }
 }
 
 html {

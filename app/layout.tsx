@@ -7,6 +7,7 @@ import "./globals.css"
 import { Suspense } from "react"
 import BackgroundFX from "@/components/background-fx"
 import Cursor from "@/components/cursor"
+import IntroSlideshow from "@/components/intro-slideshow"
 
 export const metadata: Metadata = {
   title: "Vansh Gupta — AI/ML Engineer",
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <Suspense fallback={null}>
           <div className="relative min-h-dvh overflow-x-clip">
+            <IntroSlideshow />
             <BackgroundFX />
             <Cursor />
             {children}

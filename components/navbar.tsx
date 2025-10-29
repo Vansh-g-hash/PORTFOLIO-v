@@ -12,6 +12,7 @@ const LINKS = [
   { href: "#certs", label: "Certifications" },
   { href: "#education", label: "Education" },
   { href: "#contact", label: "Contact" },
+  { href: "/resume", label: "Resume" },
 ]
 
 export default function Navbar() {
