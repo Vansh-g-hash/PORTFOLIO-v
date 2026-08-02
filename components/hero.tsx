@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { Github, Linkedin, FileDown, ExternalLink } from 'lucide-react'
+import { Github, Linkedin, FileDown, ExternalLink, Code2 } from 'lucide-react'
 import { MagicCandle } from '@/components/effects/magic-candle'
 import { FloatingParticles } from '@/components/effects/floating-particles'
 
@@ -133,7 +133,7 @@ export default function Hero() {
           </a>
 
           {/* GitHub Button */}
-          <a href="https://github.com/VANSH-G-HASH" target="_blank" rel="noreferrer">
+          <a href="https://github.com/Vansh-g-hash" target="_blank" rel="noreferrer">
             <motion.button
               className="glass px-6 sm:px-8 py-3 rounded-lg text-white font-medium text-sm sm:text-base border border-emerald-400/40 hover:border-emerald-300/80 transition-all duration-300 flex items-center gap-2"
               whileHover={{ y: -2 }}
@@ -141,6 +141,18 @@ export default function Hero() {
             >
               <Github className="w-4 h-4" />
               GitHub
+            </motion.button>
+          </a>
+
+          {/* LeetCode Button */}
+          <a href="https://leetcode.com/u/9iiNaN50z5" target="_blank" rel="noreferrer">
+            <motion.button
+              className="glass px-6 sm:px-8 py-3 rounded-lg text-white font-medium text-sm sm:text-base border border-emerald-400/40 hover:border-emerald-300/80 transition-all duration-300 flex items-center gap-2"
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Code2 className="w-4 h-4" />
+              LeetCode
             </motion.button>
           </a>
 
