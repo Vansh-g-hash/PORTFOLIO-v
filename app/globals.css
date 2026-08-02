@@ -40,52 +40,53 @@
 }
 
 .dark {
-  /* Obsidian & Deep Emerald Base */
-  --background: oklch(0.11 0 0);
-  --foreground: oklch(0.92 0 0);
-  --card: oklch(0.13 0.02 160);
-  --card-foreground: oklch(0.92 0 0);
-  --popover: oklch(0.12 0.01 160);
-  --popover-foreground: oklch(0.92 0 0);
+  /* Vintage Newspaper & Harry Potter Aesthetic */
+  /* Cream/Beige aged paper base */
+  --background: oklch(0.95 0.02 50);
+  --foreground: oklch(0.15 0 0);
+  --card: oklch(0.93 0.015 50);
+  --card-foreground: oklch(0.15 0 0);
+  --popover: oklch(0.94 0.015 50);
+  --popover-foreground: oklch(0.15 0 0);
   
-  /* Ancient Gold & Emerald Accents */
-  --primary: oklch(0.55 0.15 80);
-  --primary-foreground: oklch(0.15 0 0);
-  --secondary: oklch(0.35 0.08 150);
-  --secondary-foreground: oklch(0.92 0 0);
-  --muted: oklch(0.25 0 0);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.50 0.12 160);
-  --accent-foreground: oklch(0.15 0 0);
+  /* Black & Deep Sepia Accents */
+  --primary: oklch(0.15 0 0);
+  --primary-foreground: oklch(0.94 0 0);
+  --secondary: oklch(0.30 0.01 40);
+  --secondary-foreground: oklch(0.94 0 0);
+  --muted: oklch(0.75 0.01 50);
+  --muted-foreground: oklch(0.35 0 0);
+  --accent: oklch(0.20 0.01 30);
+  --accent-foreground: oklch(0.93 0 0);
   
-  /* Emerald Glow */
-  --destructive: oklch(0.45 0.14 150);
-  --destructive-foreground: oklch(0.92 0 0);
+  /* Dark sepia for emphasis */
+  --destructive: oklch(0.25 0.02 40);
+  --destructive-foreground: oklch(0.93 0 0);
   
-  /* Emerald Border & Glow */
-  --border: oklch(0.20 0.03 160);
-  --input: oklch(0.15 0.02 160);
-  --ring: oklch(0.45 0.15 160);
+  /* Subtle borders inspired by newspaper edges */
+  --border: oklch(0.88 0.01 50);
+  --input: oklch(0.90 0.015 50);
+  --ring: oklch(0.20 0.01 30);
   
-  /* Chart colors with magical palette */
-  --chart-1: oklch(0.50 0.12 160);
-  --chart-2: oklch(0.55 0.15 80);
-  --chart-3: oklch(0.45 0.10 170);
-  --chart-4: oklch(0.48 0.11 150);
-  --chart-5: oklch(0.52 0.13 140);
+  /* Chart colors with vintage palette */
+  --chart-1: oklch(0.20 0.01 30);
+  --chart-2: oklch(0.25 0.015 40);
+  --chart-3: oklch(0.30 0.01 50);
+  --chart-4: oklch(0.35 0.01 35);
+  --chart-5: oklch(0.40 0.015 45);
   
-  --sidebar: oklch(0.12 0.01 160);
-  --sidebar-foreground: oklch(0.92 0 0);
-  --sidebar-primary: oklch(0.50 0.12 160);
-  --sidebar-primary-foreground: oklch(0.15 0 0);
-  --sidebar-accent: oklch(0.45 0.12 160);
-  --sidebar-accent-foreground: oklch(0.92 0 0);
-  --sidebar-border: oklch(0.18 0.02 160);
-  --sidebar-ring: oklch(0.48 0.14 160);
+  --sidebar: oklch(0.94 0.01 50);
+  --sidebar-foreground: oklch(0.15 0 0);
+  --sidebar-primary: oklch(0.15 0 0);
+  --sidebar-primary-foreground: oklch(0.93 0 0);
+  --sidebar-accent: oklch(0.25 0.01 40);
+  --sidebar-accent-foreground: oklch(0.93 0 0);
+  --sidebar-border: oklch(0.88 0.01 50);
+  --sidebar-ring: oklch(0.20 0.01 30);
   
-  /* Magical glow effects */
-  --glow-emerald: oklch(0.50 0.12 160 / 0.4);
-  --glow-gold: oklch(0.55 0.15 80 / 0.3);
+  /* Vintage paper texture effects */
+  --paper-shadow: oklch(0.20 0.01 30 / 0.15);
+  --ink-black: oklch(0.15 0 0);
 }
 
 @theme inline {
@@ -155,32 +156,32 @@
     mask-image: radial-gradient(60% 55% at 50% 35%, black, transparent);
   }
   
-  /* Glassmorphism */
+  /* Vintage Paper Glass Effect */
   .glass {
-    @apply backdrop-blur-md bg-white/5 border border-emerald-500/20;
+    @apply backdrop-blur-sm bg-white/40 border border-black/20;
   }
   
-  /* Premium Shadows */
+  /* Newspaper Shadows */
   .shadow-glow-sm {
-    @apply shadow-lg shadow-emerald-900/20;
+    @apply shadow-md shadow-black/15;
   }
   
   .shadow-glow-md {
-    @apply shadow-2xl shadow-emerald-900/30;
+    @apply shadow-lg shadow-black/20;
   }
   
   .shadow-glow-lg {
-    @apply shadow-2xl shadow-emerald-900/40;
+    @apply shadow-xl shadow-black/25;
   }
   
-  /* Emerald Glow Border */
+  /* Black Ribbon Border */
   .border-glow-emerald {
-    @apply border border-emerald-500/30 hover:border-emerald-400/60 transition-colors;
+    @apply border-2 border-black hover:shadow-md transition-all;
   }
   
-  /* Premium gradient text */
+  /* Newspaper headline text */
   .gradient-text {
-    @apply bg-gradient-to-r from-emerald-400 via-amber-200 to-emerald-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-black via-stone-700 to-black bg-clip-text text-transparent;
   }
   
   /* Smooth transitions */
@@ -196,8 +197,8 @@
     width: 36px;
     height: 36px;
     border-radius: 9999px;
-    border: 1.5px solid oklch(0.50 0.12 160 / 0.6);
-    box-shadow: 0 0 20px oklch(0.50 0.12 160 / 0.4), inset 0 0 20px oklch(0.50 0.12 160 / 0.2);
+    border: 1.5px solid oklch(0.20 0.01 30 / 0.4);
+    box-shadow: 0 0 16px oklch(0.20 0.01 30 / 0.2), inset 0 0 16px oklch(0.20 0.01 30 / 0.1);
     pointer-events: none;
     z-index: 60;
     display: none;
@@ -210,8 +211,8 @@
     width: 5px;
     height: 5px;
     border-radius: 9999px;
-    background: oklch(0.50 0.12 160 / 0.8);
-    box-shadow: 0 0 12px oklch(0.50 0.12 160 / 0.6);
+    background: oklch(0.20 0.01 30 / 0.6);
+    box-shadow: 0 0 8px oklch(0.20 0.01 30 / 0.4);
     pointer-events: none;
     z-index: 61;
     display: none;
