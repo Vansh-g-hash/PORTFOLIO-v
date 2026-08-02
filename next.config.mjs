@@ -13,11 +13,6 @@ const nextConfig = {
   reactCompiler: true,
   // Optimize for production builds
   productionBrowserSourceMaps: false,
-  // Enable SWR data fetching optimizations
-  swrConfig: {
-    revalidateOnFocus: false,
-    revalidateOnReconnect: true,
-  },
   // Security headers for Vercel deployment
   async headers() {
     return [
