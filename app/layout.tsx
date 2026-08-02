@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter, JetBrains_Mono, Cinzel, Cormorant_Garamond } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
@@ -23,7 +23,26 @@ export const metadata: Metadata = {
     title: "Vansh Gupta — Software Engineer",
     description: "Premium AI & Software Engineering Portfolio",
     type: "website",
+    url: "https://vansh-gupta.vercel.app",
+    siteName: "Vansh Gupta Portfolio",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vansh Gupta — Software Engineer",
+    description: "Premium AI & Software Engineering Portfolio",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: "#000000",
 }
 
 export default function RootLayout({
