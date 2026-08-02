@@ -1,18 +1,19 @@
-"use client"
+'use client'
 
-import { useMemo } from "react"
-import useSWR from "swr"
-import { Card } from "@/components/ui/card"
+import { useMemo } from 'react'
+import useSWR from 'swr'
+import { motion } from 'framer-motion'
+import { Github } from 'lucide-react'
 
 type Day = { date: string; count: number }
 type APIResponse = { username: string; from: string; to: string; days: Day[]; error?: string }
 
 const LEVELS = [
-  "bg-white/10 dark:bg-white/10",
-  "bg-sky-300 dark:bg-sky-900/70",
-  "bg-sky-400/80 dark:bg-sky-800",
-  "bg-sky-500/90 dark:bg-sky-700",
-  "bg-sky-600 dark:bg-sky-600",
+  'bg-emerald-950/40',
+  'bg-emerald-700/50',
+  'bg-emerald-600/70',
+  'bg-emerald-500/80',
+  'bg-emerald-400/90',
 ]
 
 // fallback heatmap if API fails
@@ -98,76 +99,115 @@ export default function GitHubHeatmap({ username = "Vansh-g-hash" }: { username?
   )
 
   return (
-    <section id="github" className="mx-auto max-w-6xl scroll-mt-24 px-4 py-16">
-      <div className="mx-auto mb-8 max-w-3xl text-center">
-        <h2 className="text-balance text-4xl font-semibold tracking-[-0.02em] md:text-5xl">
-          <span className="bg-gradient-to-b from-zinc-100 to-zinc-300 bg-clip-text text-transparent">
-            GitHub Contributions
-          </span>
-        </h2>
-        <p className="mt-3 text-pretty text-zinc-400">
-          My GitHub is where I code and commit — check out my streak and repos I’m proud of.
-        </p>
-        <div className="mt-4 flex items-center justify-center gap-2">
-          <span className="h-1 w-10 rounded-full bg-white/20" />
-          <span className="h-1 w-2 rounded-full bg-white/30" />
-          <span className="h-1 w-10 rounded-full bg-white/20" />
-        </div>
+    <section id="github" className="relative w-full py-24 sm:py-32 overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-40 right-10 w-80 h-80 bg-gradient-radial from-emerald-400/5 to-transparent rounded-full blur-3xl opacity-40" />
+        <div className="absolute bottom-32 left-20 w-96 h-96 bg-gradient-radial from-cyan-400/5 to-transparent rounded-full blur-3xl opacity-30" />
       </div>
 
-      <Card className="rounded-3xl border-white/10 bg-white/[0.04] p-6 backdrop-blur">
-        {/* Month labels */}
-        <div className="relative mb-2 h-5">
-          <div className="pointer-events-none absolute left-0 top-0 grid auto-cols-min grid-flow-col text-[10px] text-zinc-400">
-            {months.map((m) => (
-              <div key={m.index} style={{ gridColumnStart: m.index + 1 }} className="mr-2">
-                {m.label}
-              </div>
-            ))}
-          </div>
-        </div>
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          className="mb-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.div className="inline-block mb-4">
+            <div className="glass px-4 py-2 rounded-full">
+              <span className="text-xs font-medium text-emerald-300/80 tracking-widest uppercase">GitHub</span>
+            </div>
+          </motion.div>
 
-        {/* Heatmap grid */}
-        <div className="overflow-x-auto">
-          <div className="grid auto-cols-min grid-flow-col gap-1">
-            {grid.map((col, i) => (
-              <div key={i} className="grid grid-rows-7 gap-1">
-                {col.map((day) => (
-                  <div
-                    key={day.date}
-                    title={`${day.count} contributions on ${day.date}`}
-                    className={`h-3 w-3 rounded-[3px] ${LEVELS[Math.max(0, Math.min(4, day.count))]}`}
-                  />
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
+          <h2
+            className="text-4xl sm:text-5xl lg:text-6xl font-display tracking-tighter leading-tight mb-6"
+            style={{ fontFamily: 'var(--font-heading)' }}
+          >
+            <span className="gradient-text">Contribution Graph</span>
+          </h2>
 
-        {/* Footer row: total + legend + link */}
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-xs text-zinc-400">
-          <p>
-            {total} contributions in the last year {error ? "(from fallback)" : ""}
+          <p
+            className="text-base sm:text-lg text-zinc-300 max-w-3xl mx-auto leading-relaxed"
+            style={{ fontFamily: 'var(--font-subheading)' }}
+          >
+            One year of commits, contributions, and continuous development reflected in real data.
           </p>
-          <div className="flex items-center gap-2">
-            <span>Less</span>
-            <div className="flex items-center gap-1">
-              {LEVELS.map((cls, i) => (
-                <span key={i} className={`h-3 w-3 rounded-[3px] ${cls}`} />
+        </motion.div>
+
+        {/* Heatmap Card */}
+        <motion.div
+          className="glass border-emerald-500/30 rounded-2xl p-8 overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          {/* Month labels */}
+          <div className="relative mb-4 h-5">
+            <div className="pointer-events-none absolute left-0 top-0 grid auto-cols-min grid-flow-col text-[10px] text-zinc-400">
+              {months.map((m) => (
+                <div key={m.index} style={{ gridColumnStart: m.index + 1 }} className="mr-2">
+                  {m.label}
+                </div>
               ))}
             </div>
-            <span>More</span>
           </div>
-          <a
-            href={`https://github.com/${username}`}
-            target="_blank"
-            rel="noreferrer"
-            className="text-zinc-300 hover:text-white"
-          >
-            View profile →
-          </a>
-        </div>
-      </Card>
+
+          {/* Heatmap grid */}
+          <div className="overflow-x-auto mb-6 pb-4 border-b border-emerald-500/10">
+            <div className="grid auto-cols-min grid-flow-col gap-1">
+              {grid.map((col, i) => (
+                <div key={i} className="grid grid-rows-7 gap-1">
+                  {col.map((day) => (
+                    <motion.div
+                      key={day.date}
+                      title={`${day.count} contributions on ${day.date}`}
+                      className={`h-3 w-3 rounded-sm transition-all duration-300 hover:ring-2 hover:ring-emerald-400/50 cursor-default ${LEVELS[Math.max(0, Math.min(4, day.count))]}`}
+                      whileHover={{ scale: 1.5 }}
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Footer row: total + legend + link */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            {/* Stats */}
+            <div className="text-sm text-zinc-300">
+              <p className="font-medium text-white mb-1">{total} Contributions</p>
+              <p className="text-xs text-zinc-400">in the last year {error ? '(from fallback)' : ''}</p>
+            </div>
+
+            {/* Legend */}
+            <div className="flex items-center gap-3">
+              <span className="text-xs text-zinc-400">Less</span>
+              <div className="flex items-center gap-1">
+                {LEVELS.map((cls, i) => (
+                  <div key={i} className={`h-3 w-3 rounded-sm ${cls}`} />
+                ))}
+              </div>
+              <span className="text-xs text-zinc-400">More</span>
+            </div>
+
+            {/* Link */}
+            <a
+              href={`https://github.com/${username}`}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg glass border-emerald-500/30 hover:border-emerald-400/60 transition-all duration-300 text-zinc-300 hover:text-emerald-300 font-medium text-sm"
+            >
+              <Github className="w-4 h-4" />
+              View GitHub Profile
+            </a>
+          </div>
+
+          {/* Shine effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 hover:opacity-100 transform -skew-x-12 hover:translate-x-full transition-all duration-700" />
+        </motion.div>
+      </div>
     </section>
   )
 }
