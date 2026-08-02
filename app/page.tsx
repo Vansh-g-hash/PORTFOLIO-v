@@ -3,7 +3,9 @@ import Hero from "@/components/hero"
 import AboutSection from "@/components/sections/about-section"
 import SkillsSection from "@/components/sections/skills-section"
 import ProjectsSection from "@/components/sections/projects-section"
+import { ExperienceSection } from "@/components/sections/experience-section"
 import GitHubHeatmap from "@/components/sections/github-heatmap"
+import LeetCodeStats from "@/components/sections/leetcode-stats"
 import CertificationsSection from "@/components/sections/certifications-section"
 import EducationSection from "@/components/sections/education-section"
 import ContactSection from "@/components/sections/contact-section"
@@ -28,12 +30,20 @@ export default function HomePage() {
         <SkillsSection />
       </div>
 
+      <div id="experience">
+        <ExperienceSection />
+      </div>
+
       <div id="projects">
         <ProjectsSection />
       </div>
 
       <div id="github">
         <GitHubHeatmap />
+      </div>
+
+      <div id="leetcode">
+        <LeetCodeStats />
       </div>
 
       <div id="certs">
