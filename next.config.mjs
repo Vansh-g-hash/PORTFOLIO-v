@@ -10,7 +10,7 @@ const nextConfig = {
     unoptimized: true,
   },
   // Enable React Compiler for optimal performance in Next.js 15
-  
+  reactCompiler: true,
   // Optimize for production builds
   productionBrowserSourceMaps: false,
   // Security headers for Vercel deployment
