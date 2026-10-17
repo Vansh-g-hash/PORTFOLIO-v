@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "node server.mjs",
     "start": "node server.mjs",
-    "build": "node scripts/check.mjs",
+    "build": "node scripts/build.mjs",
     "test": "node scripts/smoke.mjs"
   }
 }
