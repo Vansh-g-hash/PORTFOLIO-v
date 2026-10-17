@@ -60,42 +60,21 @@ export async function GET(request: NextRequest) {
     const acStats = user.submitStats?.acSubmissionNum || []
     const totalStats = user.submitStats?.totalSubmissionNum || []
 
-    // Calculate stats
-    const totalSolved = acStats.reduce((sum: number, stat: any) => sum + stat.count, 0)
-    const easySolved = acStats.find((s: any) => s.difficulty === 'Easy')?.count || 0
-    const mediumSolved = acStats.find((s: any) => s.difficulty === 'Medium')?.count || 0
-    const hardSolved = acStats.find((s: any) => s.difficulty === 'Hard')?.count || 0
-    
-    const totalSubmissions = totalStats.reduce((sum: number, stat: any) => sum + stat.count, 0)
-    const acceptanceRate = totalSubmissions > 0 ? ((totalSolved / totalSubmissions) * 100).toFixed(1) : '0'
-    const badges = user.badges?.length || 0
+    const totalSolved = acStats.reduce((sum: number, stat: any) => sum + Number(stat.count), 0)
+    const easySolved = Number(acStats.find((s: any) => s.difficulty === 'Easy')?.count ?? 0)
+    const mediumSolved = Number(acStats.find((s: any) => s.difficulty === 'Medium')?.count ?? 0)
+    const hardSolved = Number(acStats.find((s: any) => s.difficulty === 'Hard')?.count ?? 0)
+    const totalSubmissions = totalStats.reduce((sum: number, stat: any) => sum + Number(stat.count), 0)
 
     return NextResponse.json({
-      username,
-      totalSolved,
-      easySolved,
-      mediumSolved,
-      hardSolved,
+      username, totalSolved, easySolved, mediumSolved, hardSolved,
       totalSubmissions,
-      acceptanceRate: parseFloat(acceptanceRate),
       ranking: user.profile?.ranking,
-      badges,
-    })
+      badges: Array.isArray(user.badges) ? user.badges.length : undefined,
+    }, { headers: { 'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400' } })
   } catch (error) {
     console.error('[v0] LeetCode API error:', error)
     
-    // Return fallback data
-    return NextResponse.json({
-      username,
-      totalSolved: 150,
-      easySolved: 85,
-      mediumSolved: 55,
-      hardSolved: 10,
-      totalSubmissions: 450,
-      acceptanceRate: 33.3,
-      ranking: 1250000,
-      badges: 8,
-      error: 'Using cached data',
-    })
+    return NextResponse.json({ username, error: 'Stats temporarily unavailable' }, { status: 503 })
   }
 }

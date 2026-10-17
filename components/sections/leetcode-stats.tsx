@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, type Variants } from 'framer-motion'
 import { Code2, TrendingUp, Award } from 'lucide-react'
 import useSWR from 'swr'
 import { useEffect, useState } from 'react'
@@ -22,7 +22,7 @@ interface LeetCodeStats {
   badges?: number
 }
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -33,7 +33,7 @@ const containerVariants = {
   },
 }
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
@@ -59,17 +59,7 @@ export default function LeetCodeStats() {
       } catch (err) {
         console.error('[v0] LeetCode fetch error:', err)
         setError('Unable to load stats')
-        // Fallback mock data for demo
-        setStats({
-          totalSolved: 150,
-          easySolved: 85,
-          mediumSolved: 55,
-          hardSolved: 10,
-          totalSubmissions: 450,
-          acceptanceRate: 33.3,
-          ranking: 1250000,
-          badges: 8,
-        })
+        setStats(null)
       } finally {
         setLoading(false)
       }
@@ -127,7 +117,7 @@ export default function LeetCodeStats() {
           {[
             {
               label: 'Problems Solved',
-              value: stats?.totalSolved || 0,
+              value: stats?.totalSolved,
               icon: Award,
               color: 'from-violet-500/20 to-transparent',
               borderColor: 'border-violet-500/30',
@@ -135,7 +125,7 @@ export default function LeetCodeStats() {
             },
             {
               label: 'Easy',
-              value: stats?.easySolved || 0,
+              value: stats?.easySolved,
               icon: TrendingUp,
               color: 'from-emerald-500/20 to-transparent',
               borderColor: 'border-emerald-500/30',
@@ -143,7 +133,7 @@ export default function LeetCodeStats() {
             },
             {
               label: 'Medium',
-              value: stats?.mediumSolved || 0,
+              value: stats?.mediumSolved,
               icon: Code2,
               color: 'from-amber-500/20 to-transparent',
               borderColor: 'border-amber-500/30',
@@ -151,7 +141,7 @@ export default function LeetCodeStats() {
             },
             {
               label: 'Hard',
-              value: stats?.hardSolved || 0,
+              value: stats?.hardSolved,
               icon: TrendingUp,
               color: 'from-rose-500/20 to-transparent',
               borderColor: 'border-rose-500/30',
@@ -208,17 +198,17 @@ export default function LeetCodeStats() {
             {[
               {
                 label: 'Acceptance Rate',
-                value: stats?.acceptanceRate?.toFixed(1) + '%' || '33.3%',
+                value: stats?.acceptanceRate != null ? `${stats.acceptanceRate.toFixed(1)}%` : 'Unavailable',
                 description: 'Successful submissions vs total attempts',
               },
               {
                 label: 'Total Submissions',
-                value: stats?.totalSubmissions || 450,
+                value: stats?.totalSubmissions ?? 'Unavailable',
                 description: 'Code submissions across all problems',
               },
               {
                 label: 'Badges Earned',
-                value: stats?.badges || 8,
+                value: stats?.badges ?? 'Unavailable',
                 description: 'Achievements and milestones reached',
               },
             ].map((metric, i) => (
@@ -253,7 +243,7 @@ export default function LeetCodeStats() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
-            Loading live data... Showing recent cached stats.
+            Stats temporarily unavailable. Visit the profile for current data.
           </motion.div>
         )}
       </div>

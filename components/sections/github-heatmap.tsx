@@ -16,8 +16,7 @@ const LEVELS = [
   'bg-emerald-400/90',
 ]
 
-// fallback heatmap if API fails
-function generateFallbackHeatmap(): Day[][] {
+function generateUnavailableGrid(): Day[][] {
   // Keep the fallback deterministic so the first server and client renders match.
   const today = new Date('2026-10-17T00:00:00.000Z')
   const start = new Date(today)
@@ -39,7 +38,7 @@ function generateFallbackHeatmap(): Day[][] {
 }
 
 function toGrid(days: Day[]): Day[][] {
-  if (!days || days.length === 0) return generateFallbackHeatmap()
+  if (!days || days.length === 0) return generateUnavailableGrid()
   const map = new Map(days.map((d) => [d.date, d.count]))
 
   const start0 = new Date(days[0].date)
@@ -91,7 +90,7 @@ export default function GitHubHeatmap({ username = "Vansh-g-hash" }: { username?
 
   const grid = useMemo(() => {
     if (data?.days?.length) return toGrid(data.days)
-    return generateFallbackHeatmap()
+    return generateUnavailableGrid()
   }, [data])
 
   const months = useMemo(() => monthLabels(grid), [grid])
@@ -161,7 +160,7 @@ export default function GitHubHeatmap({ username = "Vansh-g-hash" }: { username?
           {/* Heatmap grid */}
           <div className="overflow-x-auto mb-6 pb-4 border-b border-emerald-500/10">
             <div className="grid auto-cols-min grid-flow-col gap-1">
-              {grid.map((col, i) => (
+              {data?.days?.length ? grid.map((col, i) => (
                 <div key={i} className="grid grid-rows-7 gap-1">
                   {col.map((day) => (
                     <motion.div
@@ -172,7 +171,7 @@ export default function GitHubHeatmap({ username = "Vansh-g-hash" }: { username?
                     />
                   ))}
                 </div>
-              ))}
+              )) : null}
             </div>
           </div>
 
@@ -180,8 +179,8 @@ export default function GitHubHeatmap({ username = "Vansh-g-hash" }: { username?
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
             {/* Stats */}
             <div className="text-sm text-zinc-300">
-              <p className="font-medium text-white mb-1">{total} Contributions</p>
-              <p className="text-xs text-zinc-400">in the last year {error ? '(from fallback)' : ''}</p>
+              <p className="font-medium text-white mb-1">{data?.days?.length ? `${total} Contributions` : 'Stats temporarily unavailable'}</p>
+              <p className="text-xs text-zinc-400">{data?.days?.length ? 'in the last year' : 'View the profile for the live contribution calendar'}</p>
             </div>
 
             {/* Legend */}

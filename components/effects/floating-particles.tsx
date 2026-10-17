@@ -16,6 +16,8 @@ export function FloatingParticles() {
     canvas.height = window.innerHeight
 
     const particles: Particle[] = []
+    const canvasWidth = canvas.width
+    const canvasHeight = canvas.height
 
     class Particle {
       x: number
@@ -27,8 +29,8 @@ export function FloatingParticles() {
       color: string
 
       constructor() {
-        this.x = Math.random() * canvas.width
-        this.y = Math.random() * canvas.height
+        this.x = Math.random() * canvasWidth
+        this.y = Math.random() * canvasHeight
         this.vx = (Math.random() - 0.5) * 0.5
         this.vy = -Math.random() * 0.3 - 0.1
         this.size = Math.random() * 1.5 + 0.5

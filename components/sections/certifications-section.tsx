@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, type Variants } from 'framer-motion'
 import { certificationsData } from '@/lib/data/certifications'
 import { Award, Calendar, ExternalLink, X } from 'lucide-react'
 import { useState } from 'react'
@@ -20,7 +20,7 @@ const categoryIcons: Record<string, React.ComponentType<any>> = {
   sustainability: () => <Award className="w-4 h-4" />,
 }
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -31,7 +31,7 @@ const containerVariants = {
   },
 }
 
-const certVariants = {
+const certVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
