@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-label="SPAM FILTER illustration">
+ <defs><linearGradient id="g" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#08394b"/><stop offset=".66" stop-color="#0a0a12"/><stop offset="1" stop-color="#08394b"/></linearGradient><radialGradient id="gl"><stop stop-color="#47c9ec" stop-opacity=".38"/><stop offset="1" stop-color="#47c9ec" stop-opacity="0"/></radialGradient><pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="white" stroke-opacity=".045" stroke-width="1"/></pattern></defs>
+ <rect width="1000" height="560" fill="url(#g)"/><rect width="1000" height="560" fill="url(#grid)"/><ellipse cx="777" cy="361" rx="360" ry="310" fill="url(#gl)"/>
+ <path d="M50 50h44M50 50v44M950 50h-44M950 50v44M50 510h44M50 510v-44M950 510h-44M950 510v-44" fill="none" stroke="#47c9ec" stroke-opacity=".45" stroke-width="3"/>
+ <text x="76" y="94" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" letter-spacing="6" fill="#47c9ec">VANSH ORIGINALS</text>
+ <text x="76" y="357" font-family="Arial,Helvetica,sans-serif" font-size="59" font-weight="900" letter-spacing="-2" fill="white">SPAM FILTER</text>
+ <text x="78" y="401" font-family="Arial,Helvetica,sans-serif" font-size="20" letter-spacing="5" fill="#ffffff" opacity=".63">NLP</text>
+ <rect x="76" y="425" width="132" height="5" fill="#47c9ec"/>
+ <rect x="624" y="262" width="295" height="183" rx="20" stroke="#96edff" stroke-width="9" fill="none"/><path d="M633 277l136 110 140-110" stroke="#96edff" stroke-width="9" fill="none"/><circle cx="871" cy="432" r="63" fill="#47c9ec"/><path d="M848 431l15 16 29-36" stroke="#063b48" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ </svg>

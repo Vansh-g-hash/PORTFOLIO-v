@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-label="HEALTHGUARD illustration">
+ <defs><linearGradient id="g" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#083b36"/><stop offset=".66" stop-color="#0a0a12"/><stop offset="1" stop-color="#083b36"/></linearGradient><radialGradient id="gl"><stop stop-color="#4bdba4" stop-opacity=".38"/><stop offset="1" stop-color="#4bdba4" stop-opacity="0"/></radialGradient><pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="white" stroke-opacity=".045" stroke-width="1"/></pattern></defs>
+ <rect width="1000" height="560" fill="url(#g)"/><rect width="1000" height="560" fill="url(#grid)"/><ellipse cx="777" cy="361" rx="360" ry="310" fill="url(#gl)"/>
+ <path d="M50 50h44M50 50v44M950 50h-44M950 50v44M50 510h44M50 510v-44M950 510h-44M950 510v-44" fill="none" stroke="#4bdba4" stroke-opacity=".45" stroke-width="3"/>
+ <text x="76" y="94" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" letter-spacing="6" fill="#4bdba4">VANSH ORIGINALS</text>
+ <text x="76" y="357" font-family="Arial,Helvetica,sans-serif" font-size="59" font-weight="900" letter-spacing="-2" fill="white">HEALTHGUARD</text>
+ <text x="78" y="401" font-family="Arial,Helvetica,sans-serif" font-size="20" letter-spacing="5" fill="#ffffff" opacity=".63">AI</text>
+ <rect x="76" y="425" width="132" height="5" fill="#4bdba4"/>
+ <path d="M639 365h68l29-74 55 150 38-77h105" stroke="#9affd7" fill="none" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path d="M767 246c-110-85-230 53 0 226 230-173 110-311 0-226Z" fill="none" stroke="#68e6b8" opacity=".34" stroke-width="8"/>
+ </svg>
