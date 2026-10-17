@@ -18,7 +18,8 @@ const LEVELS = [
 
 // fallback heatmap if API fails
 function generateFallbackHeatmap(): Day[][] {
-  const today = new Date()
+  // Keep the fallback deterministic so the first server and client renders match.
+  const today = new Date('2026-10-17T00:00:00.000Z')
   const start = new Date(today)
   start.setDate(start.getDate() - 53 * 7)
   const grid: Day[][] = []
@@ -71,7 +72,7 @@ function monthLabels(grid: Day[][]): { index: number; label: string }[] {
     const dt = new Date(firstDay.date)
     const isStartOfMonth = dt.getDate() <= 7
     if (isStartOfMonth) {
-      labels.push({ index: i, label: dt.toLocaleString(undefined, { month: "short" }) })
+      labels.push({ index: i, label: dt.toLocaleString('en-US', { month: "short", timeZone: 'UTC' }) })
     }
   }
   return labels

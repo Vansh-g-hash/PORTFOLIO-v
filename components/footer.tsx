@@ -1,3 +1,6 @@
+"use client"
+
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Github, Instagram } from "lucide-react"
 
@@ -13,6 +16,12 @@ const NAV_LINKS = [
 ]
 
 export default function Footer() {
+  const [year, setYear] = useState<number | null>(null)
+
+  useEffect(() => {
+    setYear(new Date().getFullYear())
+  }, [])
+
   return (
     <footer className="mx-auto max-w-6xl px-4 py-10 text-sm text-muted-foreground">
       <div className="border-t border-border/60 pb-8" />
