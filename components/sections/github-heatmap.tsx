@@ -67,12 +67,14 @@ function toGrid(days: Day[]): Day[][] {
 
 function monthLabels(grid: Day[][]): { index: number; label: string }[] {
   const labels: { index: number; label: string }[] = []
+  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
   for (let i = 0; i < grid.length; i++) {
     const firstDay = grid[i][0]
-    const dt = new Date(firstDay.date)
-    const isStartOfMonth = dt.getDate() <= 7
+    const dt = new Date(`${firstDay.date}T00:00:00.000Z`)
+    const isStartOfMonth = dt.getUTCDate() <= 7
     if (isStartOfMonth) {
-      labels.push({ index: i, label: dt.toLocaleString('en-US', { month: "short", timeZone: 'UTC' }) })
+      labels.push({ index: i, label: monthNames[dt.getUTCMonth()] })
     }
   }
   return labels
