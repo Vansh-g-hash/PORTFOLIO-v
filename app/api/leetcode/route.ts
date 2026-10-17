@@ -57,14 +57,23 @@ export async function GET(request: NextRequest) {
     }
 
     const user = data.data.matchedUser
-    const acStats = user.submitStats?.acSubmissionNum || []
-    const totalStats = user.submitStats?.totalSubmissionNum || []
+    const acceptedByDifficulty = user.submitStats?.acSubmissionNum || []
+    const submissionsByDifficulty = user.submitStats?.totalSubmissionNum || []
+    const difficulties = new Set(['Easy', 'Medium', 'Hard'])
+    const acceptedDifficultyStats = acceptedByDifficulty.filter((stat: any) => difficulties.has(stat.difficulty))
+    const submissionDifficultyStats = submissionsByDifficulty.filter((stat: any) => difficulties.has(stat.difficulty))
 
-    const totalSolved = acStats.reduce((sum: number, stat: any) => sum + Number(stat.count), 0)
-    const easySolved = Number(acStats.find((s: any) => s.difficulty === 'Easy')?.count ?? 0)
-    const mediumSolved = Number(acStats.find((s: any) => s.difficulty === 'Medium')?.count ?? 0)
-    const hardSolved = Number(acStats.find((s: any) => s.difficulty === 'Hard')?.count ?? 0)
-    const totalSubmissions = totalStats.reduce((sum: number, stat: any) => sum + Number(stat.count), 0)
+    const countFor = (stats: any[], difficulty: string) =>
+      Number(stats.find((stat) => stat.difficulty === difficulty)?.count ?? 0)
+
+    const easySolved = countFor(acceptedDifficultyStats, 'Easy')
+    const mediumSolved = countFor(acceptedDifficultyStats, 'Medium')
+    const hardSolved = countFor(acceptedDifficultyStats, 'Hard')
+    const totalSolved = easySolved + mediumSolved + hardSolved
+    const totalSubmissions = submissionDifficultyStats.reduce(
+      (sum: number, stat: any) => sum + Number(stat.count),
+      0,
+    )
 
     return NextResponse.json({
       username, totalSolved, easySolved, mediumSolved, hardSolved,
