@@ -17,24 +17,8 @@ const LEVELS = [
 ]
 
 function generateUnavailableGrid(): Day[][] {
-  // Keep the fallback deterministic so the first server and client renders match.
-  const today = new Date('2026-10-17T00:00:00.000Z')
-  const start = new Date(today)
-  start.setDate(start.getDate() - 53 * 7)
-  const grid: Day[][] = []
-  for (let w = 0; w < 53; w++) {
-    const col: Day[] = []
-    for (let d = 0; d < 7; d++) {
-      const dt = new Date(start)
-      dt.setDate(start.getDate() + w * 7 + d)
-      const key = dt.toISOString().slice(0, 10)
-      const hash = Array.from(key).reduce((acc, ch) => acc + ch.charCodeAt(0), 0)
-      const count = hash % 5
-      col.push({ date: key, count })
-    }
-    grid.push(col)
-  }
-  return grid
+  // Keep the contribution calendar empty when GitHub data is unavailable.
+  return []
 }
 
 function toGrid(days: Day[]): Day[][] {

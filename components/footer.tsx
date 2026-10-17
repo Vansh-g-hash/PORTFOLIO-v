@@ -61,7 +61,7 @@ export default function Footer() {
 
         <div className="space-y-1">
           <p className="text-foreground/70">
-            © {new Date().getFullYear()} <span className="text-foreground">Vansh Gupta</span>. All rights reserved.
+            © {year ?? ""} <span className="text-foreground">Vansh Gupta</span>. All rights reserved.
           </p>
           <p className="text-foreground/60">
             Built with <span className="text-foreground">React</span> and deployed on{" "}
